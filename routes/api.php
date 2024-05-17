@@ -6,18 +6,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/students', [StudentController::class, 'index']);
 
-Route::get('/students/{id}', function () {
-    return 'obteniend estudiante';
-});
+Route::get('/students/{id}', [StudentController::class, 'show']);
 
 Route::post('/students', [StudentController::class, 'store']);
 
-Route::put('/students/{id}', function () {
-    return 'Actualizando estudiantees';
-});
+Route::put('/students/{id}', [StudentController::class, 'update']);
+Route::patch('/students/{id}', [StudentController::class, 'updateParcial']);
 
-Route::delete('/students/{id}', function () {
-    return 'ELiminando estudiantes';
-});
+Route::delete('/students/{id}', [StudentController::class, 'destroy']);
 
 
